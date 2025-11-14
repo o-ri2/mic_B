@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "JetBrains Mono", monospace;
+  overflow: hidden;
+  background: #050505;
+  color: #f5f5f5;
+  display: grid;
+  place-items: center;
+}
+
+#sphereCanvas {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: block;
+}
+
+.listener-popup {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.listener-popup.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.listener-popup__card {
+  background: rgba(8, 8, 8, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 18px 20px 20px;
+  width: clamp(220px, 24vw, 280px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+}
+
+.listener-popup__title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.92);
+  text-transform: uppercase;
+}
+
+.listener-popup__description {
+  margin: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.listener-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.listener-button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.listener-button:disabled {
+  cursor: default;
+  opacity: 0.4;
+  transform: none;
+  box-shadow: none;
+}
+
+.listener-button--primary {
+  background: rgba(0, 204, 136, 0.82);
+  color: #020202;
+  box-shadow: 0 12px 24px rgba(0, 204, 136, 0.32);
+}
+
+.listener-button--primary:not(:disabled):hover {
+  background: rgba(0, 220, 160, 0.9);
+  transform: translateY(-1px);
+}
+
+.listener-button--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.listener-button--ghost:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.listener-status {
+  min-height: 18px;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.listener-status[data-error="true"] {
+  color: #ff7676;
+}
+
+
+
